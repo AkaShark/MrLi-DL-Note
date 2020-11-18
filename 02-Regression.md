@@ -215,6 +215,12 @@ $$ if \ \ x_s=Pidgey: \ \ \ \ \ \ \ y=b_1+w_1\cdot x_{cp} \\ if \ \ x_s=Weedle: 
 
 原来的loss function只考虑了prediction的error，即$\sum\limits_i^n(\widehat{y}^i-(b+\sum\limits_{j}w_jx_j))^2$；而regularization则是在原来的loss function的基础上加上了一项$\lambda\sum(w_i)^2$，就是把这个model里面所有的$w_i$的平方和用λ加权(其中i代表遍历n个training data，j代表遍历model的每一项)
 
+因为需要的
+$$L = \sum\limits_{n}(\widehat{y}^n - (b + \sum w_ix_i)) $$ 损失函数的值最小，接近于零所以加上$$\lambda\sum(w_i)^2$$则是希望$w$越小参数的值接近于0这样的话保证函数是平滑的
+
+$$L = \sum\limits_{n}(\widehat{y}^n - (b + \sum w_ix_i))+\lambda\sum(w_i)^2 $$
+
+
 也就是说，我们期待参数$w_i$越小甚至接近于0的function，为什么呢？
 
 因为参数值接近0的function，是比较平滑的；所谓的平滑的意思是，当今天的输入有变化的时候，output对输入的变化是比较不敏感的
